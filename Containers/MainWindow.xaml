@@ -1,0 +1,47 @@
+﻿<Window x:Class="Containers.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Containers"
+        mc:Ignorable="d"
+        xmlns:materialDesing="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        Title="MainWindow" Height="557.386" Width="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="250*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="51*"/>
+            <RowDefinition Height="135*"/>
+            <RowDefinition Height="135*"/>
+        </Grid.RowDefinitions>
+        <Button Content="Поиск"  HorizontalAlignment="Left" Margin="164,7,0,0" Grid.Row="1" VerticalAlignment="Top" Width="90" Height="34" FontSize="20" Grid.Column="2" Click="Button_Click"/>
+        <TextBox x:Name="searcher" HorizontalAlignment="Left" Height="52" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" FontSize="20" Grid.Column="0" Grid.Row="0" materialDesing:HintAssist.Hint="Введите город"/>
+        <materialDesing:Card x:Name="firstCard" Grid.Row="2" Height="115" Margin="10,10,10,0">
+            Понедельник
+        </materialDesing:Card>
+        <materialDesing:Card x:Name="secondCard" Grid.Column="1" Grid.Row="2" Height="115" Margin="10,10,10,0">
+            Вторник
+        </materialDesing:Card>
+        <materialDesing:Card x:Name="thirdCard" Grid.Column="2" Grid.Row="2" Height="115" Margin="10,10,10,0">
+            Среда
+        </materialDesing:Card>
+        <materialDesing:Card x:Name="fourthCard" Grid.Row="3" Height="115" Margin="10,10,10,0">
+            Четверг
+        </materialDesing:Card>
+        <materialDesing:Card x:Name="fifthsCard" Grid.Column="1" Grid.Row="3" Height="115" Margin="10,10,10,0">
+            Пятница
+        </materialDesing:Card>
+    </Grid>
+</Window>
