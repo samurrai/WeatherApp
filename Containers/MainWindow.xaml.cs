@@ -18,9 +18,6 @@ using Newtonsoft.Json;
 
 namespace Containers
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -37,18 +34,23 @@ namespace Containers
             else
             {
                 string apiKey = "291468a296347eb959d0d25e679ec57a";
-
-                string url = "api.openweathermap.org/data/2.5/forecast/daily?appid=";
-                url += apiKey;
-
-                url += searcher.Text;
+                string url = $"https://api.openweathermap.org/data/2.5/forecast?appid={apiKey}&q={searcher.Text}&cnt=5&units=metric";
 
                 HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
-                HttpWebResponse httpWebResponse = (HttpWebResponse)webRequest.GetResponse();
 
-                using (StreamReader reader = new StreamReader(httpWebResponse.GetResponseStream()))
+                try
                 {
-                    //дописать что класс = JsonConvert.DeserializeObject(reader.ReadToEnd());
+                    HttpWebResponse httpWebResponse = (HttpWebResponse)webRequest.GetResponse();
+
+                    using (StreamReader reader = new StreamReader(httpWebResponse.GetResponseStream()))
+                    {
+                        //дописать что класс = JsonConvert.DeserializeObject(reader.ReadToEnd());
+                        MessageBox.Show(reader.ReadToEnd());
+                    }
+                }
+                catch (WebException )
+                {
+                    MessageBox.Show("Результатов не найдено");
                 }
             }
         }
